@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.databinding.FragmentRequirementListBinding
 
@@ -26,6 +27,8 @@ class RequirementListFragment : Fragment() {
     }
 
     private fun initClickListener() {
-        //TODO
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_requirementListFragment_to_addRequirementFragment)
+        }
     }
 }
