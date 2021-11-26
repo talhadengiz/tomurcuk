@@ -1,4 +1,4 @@
-package com.talhadengiz.tomurcuk.ui.fragment
+package com.talhadengiz.tomurcuk.ui.fragment.requirement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

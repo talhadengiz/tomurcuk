@@ -4,4 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="gmail">Gmail</string>
     <string name="see_needs">İhtiyaçları Gör</string>
+    <string name="ihtiyac_adi">İhtiyaç adı</string>
+    <string name="ihtiyac_miktari">İhtiyaç miktarı</string>
+    <string name="konum">Konum</string>
+    <string name="kaydet">Kaydet</string>
 </resources>
