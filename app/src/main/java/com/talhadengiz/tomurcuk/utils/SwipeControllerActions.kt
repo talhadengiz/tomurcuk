@@ -1,4 +1,4 @@
-package com.talhadengiz.tomurcuk.ui.fragment.requirement
+package com.talhadengiz.tomurcuk.utils
 
 abstract class SwipeControllerActions {
     fun onLeftClicked(position: Int) {}

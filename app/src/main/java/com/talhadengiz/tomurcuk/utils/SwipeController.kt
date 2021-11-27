@@ -1,4 +1,4 @@
-package com.talhadengiz.tomurcuk.ui.fragment.requirement
+package com.talhadengiz.tomurcuk.utils
 
 import android.graphics.Canvas
 import android.graphics.Color

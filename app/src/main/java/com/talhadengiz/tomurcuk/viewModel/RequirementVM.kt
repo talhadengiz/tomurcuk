@@ -1,4 +1,4 @@
-package com.talhadengiz.tomurcuk.ui.fragment.requirement
+package com.talhadengiz.tomurcuk.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

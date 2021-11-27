@@ -12,16 +12,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.talhadengiz.tomurcuk.ui.fragment.requirement.SwipeControllerActions
+import com.talhadengiz.tomurcuk.utils.SwipeControllerActions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.data.adapter.RequirementAdapter
 import com.talhadengiz.tomurcuk.data.model.Requirement
 import com.talhadengiz.tomurcuk.databinding.FragmentFoundationBinding
-import com.talhadengiz.tomurcuk.ui.fragment.requirement.RequirementVM
-import com.talhadengiz.tomurcuk.ui.fragment.requirement.SwipeController
-import com.talhadengiz.tomurcuk.utils.Constant
+import com.talhadengiz.tomurcuk.utils.SwipeController
 import com.talhadengiz.tomurcuk.utils.SharedPrefHelper
+import com.talhadengiz.tomurcuk.viewModel.FoundationVM
 
 class FoundationFragment : Fragment() {
 

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.databinding.FragmentAddRequirementBinding
+import com.talhadengiz.tomurcuk.viewModel.RequirementVM
 
 class AddRequirementFragment : Fragment() {
 

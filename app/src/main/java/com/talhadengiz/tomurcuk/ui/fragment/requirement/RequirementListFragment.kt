@@ -13,9 +13,8 @@ import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.data.adapter.RequirementAdapter
 import com.talhadengiz.tomurcuk.data.model.Requirement
 import com.talhadengiz.tomurcuk.databinding.FragmentRequirementListBinding
-import com.talhadengiz.tomurcuk.ui.fragment.foundation.FoundationVM
-import com.talhadengiz.tomurcuk.utils.Constant
 import com.talhadengiz.tomurcuk.utils.SharedPrefHelper
+import com.talhadengiz.tomurcuk.viewModel.RequirementVM
 
 class RequirementListFragment : Fragment() {
 
