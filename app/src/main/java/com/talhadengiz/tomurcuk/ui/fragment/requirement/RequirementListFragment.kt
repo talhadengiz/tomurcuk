@@ -54,10 +54,11 @@ class RequirementListFragment : Fragment() {
     }
 
     private fun bindRequirementList() {
-        firestore?.collection("requirement")?.addSnapshotListener { value, error ->
-            value?.toObjects(Requirement::class.java).let {
-                binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
+        firestore?.collection("requirement")?.whereEqualTo("status", false)
+            ?.addSnapshotListener { value, error ->
+                value?.toObjects(Requirement::class.java).let {
+                    binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
+                }
             }
-        }
     }
 }

@@ -45,8 +45,9 @@ class FoundationFragment : Fragment() {
 
         swipeController = SwipeController(object : SwipeControllerActions() {
             override fun onRightClicked(position: Int) {
-                val data = requirementAdapter?.getData()
-                data!![position].status = true
+                val data = requirementAdapter.getData()
+                data[position].status = true
+                firestore?.collection("requirement")?.document(data[position].title)?.update("status",true)
             }
         })
         val itemTouchhelper = ItemTouchHelper(swipeController)
