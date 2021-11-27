@@ -11,6 +11,11 @@ class RequirementAdapter(private val requirementList: ArrayList<Requirement>) :
 
     inner class RequirementVH(val binding: ItemRequirementBinding) :
         RecyclerView.ViewHolder(binding.root) {
+            init {
+                binding.cvItemRequirement.setOnClickListener {
+
+                }
+            }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequirementVH {

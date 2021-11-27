@@ -5,6 +5,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="10dp"
     app:cardMaxElevation="12dp"
+    android:id="@+id/cv_item_requirement"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dimen_12"
@@ -45,6 +46,13 @@
             android:textSize="24sp"
             android:textStyle="bold"
             tools:text="Konum: İstanbul" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_complete"
+            android:text="Tamamlandı"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

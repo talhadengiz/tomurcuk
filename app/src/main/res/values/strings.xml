@@ -8,4 +8,5 @@
     <string name="ihtiyac_miktari">İhtiyaç miktarı</string>
     <string name="konum">Konum</string>
     <string name="kaydet">Kaydet</string>
+    <string name="kurum_girisi">Kurum Girişi</string>
 </resources>

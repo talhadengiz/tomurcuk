@@ -5,5 +5,6 @@ import java.io.Serializable
 data class Requirement(
     val title:String = "",
     val total:String = "",
-    val location:String=""
+    val location:String="",
+    val status:Boolean=false
 ):Serializable
