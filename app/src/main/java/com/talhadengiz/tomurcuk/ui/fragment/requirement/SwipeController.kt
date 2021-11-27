@@ -8,7 +8,6 @@ import android.view.MotionEvent
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.LEFT
 import androidx.recyclerview.widget.RecyclerView
-import com.aydem.ui.fragments.energy_saving.list.SwipeControllerActions
 
 
 internal enum class ButtonsState {

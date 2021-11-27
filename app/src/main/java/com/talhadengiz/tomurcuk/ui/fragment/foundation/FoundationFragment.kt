@@ -2,21 +2,25 @@ package com.talhadengiz.tomurcuk.ui.fragment.foundation
 
 import android.graphics.Canvas
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.talhadengiz.tomurcuk.ui.fragment.requirement.SwipeController
-import com.aydem.ui.fragments.energy_saving.list.SwipeControllerActions
+import com.talhadengiz.tomurcuk.ui.fragment.requirement.SwipeControllerActions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.data.adapter.RequirementAdapter
 import com.talhadengiz.tomurcuk.data.model.Requirement
 import com.talhadengiz.tomurcuk.databinding.FragmentFoundationBinding
+import com.talhadengiz.tomurcuk.ui.fragment.requirement.RequirementVM
+import com.talhadengiz.tomurcuk.ui.fragment.requirement.SwipeController
+import com.talhadengiz.tomurcuk.utils.Constant
 import com.talhadengiz.tomurcuk.utils.SharedPrefHelper
 
 class FoundationFragment : Fragment() {
@@ -24,6 +28,7 @@ class FoundationFragment : Fragment() {
     private lateinit var binding: FragmentFoundationBinding
     private var firestore: FirebaseFirestore? = null
     private lateinit var requirementAdapter: RequirementAdapter
+    private val model: FoundationVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,29 +43,8 @@ class FoundationFragment : Fragment() {
         init()
         initRequirement()
         initClickListener()
-        bindRequirementList()
+        observe()
         setRequirementStatus()
-    }
-
-    private fun setRequirementStatus() {
-        var swipeController: SwipeController? = null
-        lateinit var viewHolder: RecyclerView.ViewHolder
-
-        swipeController = SwipeController(object : SwipeControllerActions() {
-            override fun onRightClicked(position: Int) {
-                val data = requirementAdapter.getData()
-                firestore?.collection("requirement")?.document(data[position].title)
-                    ?.update("status", true)
-            }
-        })
-        val itemTouchhelper = ItemTouchHelper(swipeController)
-        itemTouchhelper.attachToRecyclerView(binding.rvRequirement)
-
-        binding.rvRequirement.addItemDecoration(object : RecyclerView.ItemDecoration() {
-            override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-                swipeController.onDraw(c)
-            }
-        })
     }
 
     private fun init() {
@@ -79,12 +63,29 @@ class FoundationFragment : Fragment() {
         }
     }
 
-    private fun bindRequirementList() {
-        firestore?.collection("requirement")?.whereEqualTo("status",false)?.addSnapshotListener { value, error ->
-            value?.toObjects(Requirement::class.java).let {
-                binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
-                requirementAdapter = RequirementAdapter(it)
+    private fun observe() {
+        model.requirements.observe(viewLifecycleOwner, Observer {
+            binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
+            requirementAdapter = RequirementAdapter(it)
+        })
+    }
+
+    private fun setRequirementStatus() {
+        var swipeController: SwipeController? = null
+
+        swipeController = SwipeController(object : SwipeControllerActions() {
+            override fun onRightClicked(position: Int) {
+                val data = requirementAdapter.getData()
+                model.update(data[position].title)
             }
-        }
+        })
+        val itemTouchhelper = ItemTouchHelper(swipeController)
+        itemTouchhelper.attachToRecyclerView(binding.rvRequirement)
+
+        binding.rvRequirement.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+                swipeController.onDraw(c)
+            }
+        })
     }
 }

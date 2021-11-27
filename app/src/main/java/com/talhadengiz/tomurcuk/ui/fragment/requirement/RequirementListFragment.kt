@@ -1,10 +1,11 @@
 package com.talhadengiz.tomurcuk.ui.fragment.requirement
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,12 +13,16 @@ import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.data.adapter.RequirementAdapter
 import com.talhadengiz.tomurcuk.data.model.Requirement
 import com.talhadengiz.tomurcuk.databinding.FragmentRequirementListBinding
+import com.talhadengiz.tomurcuk.ui.fragment.foundation.FoundationVM
+import com.talhadengiz.tomurcuk.utils.Constant
 import com.talhadengiz.tomurcuk.utils.SharedPrefHelper
 
 class RequirementListFragment : Fragment() {
 
     private lateinit var binding: FragmentRequirementListBinding
     private var firestore: FirebaseFirestore? = null
+    private lateinit var requirementAdapter: RequirementAdapter
+    private val model: RequirementVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +37,7 @@ class RequirementListFragment : Fragment() {
         init()
         initClickListener()
         initRequirement()
-        bindRequirementList()
+        observe()
     }
 
     private fun init() {
@@ -45,9 +50,9 @@ class RequirementListFragment : Fragment() {
         }
 
         binding.btnLogin.setOnClickListener {
-            if (isLogin()){
+            if (isLogin()) {
                 findNavController().navigate(R.id.action_requirementListFragment_to_foundationFragment)
-            }else{
+            } else {
                 findNavController().navigate(R.id.action_requirementListFragment_to_loginFragment)
             }
         }
@@ -58,16 +63,14 @@ class RequirementListFragment : Fragment() {
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
     }
 
-    private fun bindRequirementList() {
-        firestore?.collection("requirement")?.whereEqualTo("status", false)
-            ?.addSnapshotListener { value, error ->
-                value?.toObjects(Requirement::class.java).let {
-                    binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
-                }
-            }
+    private fun observe() {
+        model.requirements.observe(viewLifecycleOwner,{
+            binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
+            requirementAdapter = RequirementAdapter(it)
+        })
     }
 
-    private fun isLogin():Boolean{
+    private fun isLogin(): Boolean {
         return SharedPrefHelper(requireContext()).isLogin()
     }
 }

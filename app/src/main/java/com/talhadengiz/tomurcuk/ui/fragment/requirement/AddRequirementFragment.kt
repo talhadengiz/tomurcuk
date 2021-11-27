@@ -7,17 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
 import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.databinding.FragmentAddRequirementBinding
 
 class AddRequirementFragment : Fragment() {
 
     private lateinit var binding: FragmentAddRequirementBinding
-    val model: RequirementVM by viewModels()
-    private val storage: FirebaseStorage = Firebase.storage
+    private val model: RequirementVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +40,7 @@ class AddRequirementFragment : Fragment() {
 
     private fun observe() {
         model.isSuccess.observe(viewLifecycleOwner, {
-            if(it){
-                findNavController().navigate(R.id.action_addRequirementFragment_to_requirementListFragment)
-            }
+            if (it) findNavController().navigate(R.id.action_addRequirementFragment_to_requirementListFragment)
         })
     }
 }

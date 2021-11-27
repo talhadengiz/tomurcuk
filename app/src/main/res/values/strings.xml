@@ -16,4 +16,5 @@
     <string name="sifre">Şifre</string>
     <string name="giris">Giriş</string>
     <string name="cikis_yap">Çıkış yap</string>
+    <string name="login_message">Giriş yapılamadı</string>
 </resources>

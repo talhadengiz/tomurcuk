@@ -1,4 +1,4 @@
-package com.aydem.ui.fragments.energy_saving.list
+package com.talhadengiz.tomurcuk.ui.fragment.requirement
 
 abstract class SwipeControllerActions {
     fun onLeftClicked(position: Int) {}
