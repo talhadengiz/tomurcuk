@@ -15,5 +15,9 @@ A need adding-listing-following tracking platform that brings together the peopl
 - SharedPreferences
 
 
-
+<table>
+  <tr>
+    <td><img src="https://github.com/talhadengiz/tomurcuk/blob/master/Screenshot_2.png" height="500px"/></td>
+  </tr>
+</table>
 
