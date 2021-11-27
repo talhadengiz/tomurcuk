@@ -1,4 +1,4 @@
-package com.aydem.ui.fragments.energy_saving.list
+package com.talhadengiz.tomurcuk.ui.fragment.requirement
 
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.LEFT
 import androidx.recyclerview.widget.RecyclerView
+import com.aydem.ui.fragments.energy_saving.list.SwipeControllerActions
 
 
 internal enum class ButtonsState {
@@ -212,7 +213,7 @@ internal class SwipeController(buttonsActions: SwipeControllerActions?) :
             itemView.right.toFloat() - 12f,
             itemView.bottom.toFloat() - 16f
         )
-        p.color = Color.GRAY
+        p.color = Color.parseColor("#2AF598")
         c.drawRoundRect(rightButton, corners, corners, p)
         drawText("Tamamla", c, rightButton, p)
         buttonInstance = null

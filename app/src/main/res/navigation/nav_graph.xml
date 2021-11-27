@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/foundationFragment"
-        android:name="com.talhadengiz.tomurcuk.ui.fragment.company.FoundationFragment"
+        android:name="com.talhadengiz.tomurcuk.ui.fragment.foundation.FoundationFragment"
         android:label="fragment_foundation"
         tools:layout="@layout/fragment_foundation" />
     <fragment

@@ -1,4 +1,4 @@
-package com.talhadengiz.tomurcuk.ui.fragment.company
+package com.talhadengiz.tomurcuk.ui.fragment.foundation
 
 import android.graphics.Canvas
 import android.os.Bundle
@@ -9,10 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.aydem.ui.fragments.energy_saving.list.SwipeController
+import com.talhadengiz.tomurcuk.ui.fragment.requirement.SwipeController
 import com.aydem.ui.fragments.energy_saving.list.SwipeControllerActions
 import com.google.firebase.firestore.FirebaseFirestore
-import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.data.adapter.RequirementAdapter
 import com.talhadengiz.tomurcuk.data.model.Requirement
 import com.talhadengiz.tomurcuk.databinding.FragmentFoundationBinding

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="@dimen/dimen_12"
+    android:paddingHorizontal="@dimen/dimen_12"
     tools:context=".ui.fragment.requirement.RequirementListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,10 +21,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/rv_requirement"
         app:layout_constraintTop_toTopOf="@id/fab"
         app:layout_constraintBottom_toBottomOf="@id/fab"
         android:padding="@dimen/dimen_6"
+        android:layout_marginStart="@dimen/dimen_12"
         android:background="@drawable/button_bg"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

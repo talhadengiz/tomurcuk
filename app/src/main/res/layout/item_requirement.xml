@@ -9,7 +9,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dimen_12"
-    app:cardBackgroundColor="@color/blue"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,6 +16,7 @@
         android:layout_height="match_parent"
         android:padding="@dimen/dimen_16"
         android:gravity="center"
+        android:background="@drawable/button_bg"
         android:orientation="vertical">
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_2"
             android:textColor="@color/black"
-            android:textSize="36sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             tools:text="İhtiyaç: Su" />
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_2"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Miktar: 1000 adet" />
 
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_2"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Konum: İstanbul" />
 
