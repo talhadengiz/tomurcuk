@@ -18,5 +18,9 @@
         android:id="@+id/addRequirementFragment"
         android:name="com.talhadengiz.tomurcuk.ui.fragment.requirement.AddRequirementFragment"
         android:label="fragment_add_requirement"
-        tools:layout="@layout/fragment_add_requirement" />
+        tools:layout="@layout/fragment_add_requirement" >
+        <action
+            android:id="@+id/action_addRequirementFragment_to_requirementListFragment"
+            app:destination="@id/requirementListFragment" />
+    </fragment>
 </navigation>

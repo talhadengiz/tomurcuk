@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "630710439088",
+    "project_id": "tomurcuk-1f918",
+    "storage_bucket": "tomurcuk-1f918.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630710439088:android:e5609bb61993aea0ffff75",
+        "android_client_info": {
+          "package_name": "com.talhadengiz.tomurcuk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630710439088-77p6hr515v7r0454s7kb07f98aveslks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaMF1OfXxqjUGZcGfqpfpJJ86j72ZR8A0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630710439088-77p6hr515v7r0454s7kb07f98aveslks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
