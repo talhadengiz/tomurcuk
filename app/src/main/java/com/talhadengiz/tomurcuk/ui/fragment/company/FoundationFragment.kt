@@ -46,8 +46,8 @@ class FoundationFragment : Fragment() {
         swipeController = SwipeController(object : SwipeControllerActions() {
             override fun onRightClicked(position: Int) {
                 val data = requirementAdapter.getData()
-                data[position].status = true
-                firestore?.collection("requirement")?.document(data[position].title)?.update("status",true)
+                firestore?.collection("requirement")?.document(data[position].title)
+                    ?.update("status", true)
             }
         })
         val itemTouchhelper = ItemTouchHelper(swipeController)
@@ -70,7 +70,7 @@ class FoundationFragment : Fragment() {
     }
 
     private fun bindRequirementList() {
-        firestore?.collection("requirement")?.addSnapshotListener { value, error ->
+        firestore?.collection("requirement")?.whereEqualTo("status",false)?.addSnapshotListener { value, error ->
             value?.toObjects(Requirement::class.java).let {
                 binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
                 requirementAdapter = RequirementAdapter(it)

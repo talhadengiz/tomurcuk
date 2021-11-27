@@ -17,7 +17,7 @@ class RequirementVM : ViewModel() {
     fun saveRequirement(title: String, total: String, location: String) {
         val requirement = Requirement(title = title, total = total, location = location)
         firestore?.collection("requirement")?.document(title)?.set(requirement)?.addOnSuccessListener {
-            isSuccess.postValue(false)
+            isSuccess.postValue(true)
         }?.addOnFailureListener {
             Log.d("Hata",it.localizedMessage)
         }
