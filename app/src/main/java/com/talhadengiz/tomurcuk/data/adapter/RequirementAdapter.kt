@@ -37,4 +37,8 @@ class RequirementAdapter(private val requirementList: ArrayList<Requirement>) :
     }
 
     override fun getItemCount(): Int = requirementList.size
+
+    fun getData(): MutableList<Requirement> {
+        return requirementList
+    }
 }

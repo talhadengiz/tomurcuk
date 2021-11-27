@@ -6,5 +6,5 @@ data class Requirement(
     val title:String = "",
     val total:String = "",
     val location:String="",
-    val status:Boolean=false
+    var status:Boolean=false
 ):Serializable
