@@ -12,6 +12,7 @@ import com.talhadengiz.tomurcuk.R
 import com.talhadengiz.tomurcuk.data.adapter.RequirementAdapter
 import com.talhadengiz.tomurcuk.data.model.Requirement
 import com.talhadengiz.tomurcuk.databinding.FragmentRequirementListBinding
+import com.talhadengiz.tomurcuk.utils.SharedPrefHelper
 
 class RequirementListFragment : Fragment() {
 
@@ -44,7 +45,11 @@ class RequirementListFragment : Fragment() {
         }
 
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_requirementListFragment_to_foundationFragment)
+            if (isLogin()){
+                findNavController().navigate(R.id.action_requirementListFragment_to_foundationFragment)
+            }else{
+                findNavController().navigate(R.id.action_requirementListFragment_to_loginFragment)
+            }
         }
     }
 
@@ -60,5 +65,9 @@ class RequirementListFragment : Fragment() {
                     binding.rvRequirement.adapter = RequirementAdapter(it as ArrayList<Requirement>)
                 }
             }
+    }
+
+    private fun isLogin():Boolean{
+        return SharedPrefHelper(requireContext()).isLogin()
     }
 }
